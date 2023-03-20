@@ -1,0 +1,84 @@
+@charset "ISO-8859-1";
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #ddd;
+}
+
+.actions>a:hover {
+	text-decoration: underline;
+}
+
+.table {
+	padding-top: 1rem;
+}
+
+.table__head, .table__row {
+	display: flex;
+	align-items: center;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0px 0px 9px 3px rgb(41 41 41/ 10%);
+}
+
+.table__head>div, .table__row>div {
+	text-align: center;
+}
+
+.table__head {
+	font-weight: 600;
+	margin-bottom: 2rem;
+	padding: 1rem 0;
+}
+
+.table__cell {
+	cursor: pointer;
+}
+
+.table__cell>span {
+	margin-right: 0.5rem
+}
+
+.table__row {
+	padding: 1.5rem 0;
+	font-size: 1.4rem;
+	transition: all linear 0.2s;
+}
+
+.table__row:hover {
+	box-shadow: 0px 0px 9px 3px rgb(41 41 41/ 20%);
+}
+
+.table__body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.table__link a {
+	font-size: 1.5rem;
+}
+
+.table__link a:hover {
+	text-decoration: underline;
+}
+
+.sub-nav {
+	display: flex;
+	align-items: flex-end;
+	gap: 0.5rem;
+	transform: translateY(-1rem);
+}
+
+.sub-nav-item {
+	font-size: 1.4rem;
+	transition: all linear 0.2s;
+}
+
+.sub-nav-item:hover {
+	color: #5ec9ff;
+	text-decoration: underline;
+}

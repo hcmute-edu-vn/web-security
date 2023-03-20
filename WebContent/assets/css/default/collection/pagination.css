@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.btn-submit {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	outline: none;
+	border: 0.5px solid #6c757d;
+	padding: 0.5rem 1rem;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	color: #6c757d;
+	background-color: transparent;
+	transition: all linear 0.2s;
+	text-align: center;
+}
+
+.btn-submit.active {
+	background-color: #6c757d;
+}
+
+.btn-submit.active>span {
+	color: #fff;
+}
+
+.btn-submit>span {
+	font-size: 1.2rem;
+	transition: all linear 0.2s;
+}
+
+.btn-submit:hover {
+	background-color: #6c757d;
+}
+
+.btn-submit:hover>span {
+	color: #fff;
+}
+
+.btn-submit.disable {
+	cursor: default;
+	background-color: #d2d2d2;
+}
+
+.btn-submit.disable:hover {
+	background-color: #d2d2d2;
+}
+
+.btn-submit.disable:hover>span {
+	color: #6c757d;
+}
+
+.pagination {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.navigation {
+	margin-top: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	display: flex;
+}

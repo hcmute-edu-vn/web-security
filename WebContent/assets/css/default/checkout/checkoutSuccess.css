@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.cart__success {
+	padding: 8rem 0;
+	text-align: center;
+}
+
+.cart__success-icon>ion-icon {
+	font-size: 10rem;
+	color: green;
+}
+
+.cart__noti-btn {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: fit-content;
+	outline: none;
+	border: 0.5px solid #6c757d;
+	padding: 1rem 1.5rem;
+	margin: 0 auto;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	font-size: 1.2rem;
+	color: #6c757d;
+	font-weight: 700;
+	background-color: transparent;
+	transition: all linear 0.2s;
+	background-color: transparent;
+	border-radius: 0.4rem;
+}
+
+.cart__noti-txt {
+	margin-bottom: 1rem;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.cart__noti-btn>ion-icon {
+	font-size: 2rem;
+}
+
+.cart__noti-btn:hover {
+	color: #fff;
+	background-color: #6c757d;
+}

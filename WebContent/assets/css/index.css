@@ -1,0 +1,29 @@
+@import url('./base.css');
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* Client */
+.main {
+	padding-top: 6rem;
+}
+
+/* Admin */
+#sidebar {
+	width: 25rem;
+}
+
+#content {
+	margin-left: 25rem;
+}
+
+#main-content {
+	padding: 3rem 2rem 10rem 1rem;
+}
+
+
+#header {
+	height: 6rem;
+}

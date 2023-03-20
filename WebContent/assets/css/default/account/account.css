@@ -1,0 +1,102 @@
+@charset "UTF-8"; 
+
+.your__container {
+	display: flex;
+	align-items: flex-start;
+	gap: 2rem;
+	padding: 8rem 0;
+}
+
+.your__orders, .your__info {
+	border: 0.5px solid #ddd;
+	border-radius: 0.4rem;
+	padding: 1.5rem 1rem;
+}
+
+.your__orders {
+	flex: 1;
+}
+
+.your__info {
+	max-width: 40rem;
+}
+
+.your__info-heading, .your__order-heading {
+	font-size: 1.8rem;
+	margin-bottom: 1.5rem;
+}
+
+.your__order-table {
+	border: 1px solid #ddd;
+	padding: 1rem;
+	border-radius: 0.4rem;
+}
+
+.your__order-table-head {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 0.5rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+}
+
+.your__order-table-head, .your__order-table-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.your__order-table-item>a {
+	transition: all linear 0.2s;
+}
+
+.your__order-table-item>a:hover {
+	color: #5ec9ff;
+}
+
+.your__order-table-item:not(:last-child) {
+	padding-bottom: 1.2rem;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 1.2rem;
+}
+
+.your__info-list {
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.infor-item>span:first-child {
+	min-width: 8rem;
+	display: inline-block;
+	font-weight: 400;
+}
+
+.infor-item>span:last-child {
+	font-weight: 500;
+}
+
+.btn-submit {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	outline: none;
+	border: 0.5px solid #6c757d;
+	padding: 1rem 0;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	font-size: 1.6rem;
+	color: #6c757d;
+	background-color: transparent;
+	transition: all linear 0.2s;
+	width: 100%;
+}
+
+.btn-submit:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.btn-submit:hover {
+	color: #fff;
+	background-color: #6c757d;
+}

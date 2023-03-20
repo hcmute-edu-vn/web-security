@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="shoplane-ft"
+		transaction-type="RESOURCE_LOCAL">
+		<class>com.shoplane.models.Bill</class>
+		<class>com.shoplane.models.Category</class>
+		<class>com.shoplane.models.Color</class>
+		<class>com.shoplane.models.Option</class>
+		<class>com.shoplane.models.Order</class>
+		<class>com.shoplane.models.ProductImage</class>
+		<class>com.shoplane.models.ProductType</class>
+		<class>com.shoplane.models.Product</class>
+		<class>com.shoplane.models.Role</class>
+		<class>com.shoplane.models.Size</class>
+		<class>com.shoplane.models.User</class>
+		<properties>
+			<!-- Configuring JDBC properties -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/TFcT8GlodF" />
+			<property name="javax.persistence.jdbc.user"
+				value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="201102" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+
+			<!-- Config hibernate -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+			<!-- <property name="hibernate.show_sql" value="true" /> <property name="hibernate.format_sql" 
+				value="true" /> -->
+
+			<!-- batching size -->
+			<property name="hibernate.jdbc.batch_size" value="30" />
+			<!-- Allow insert multiple record -->
+			<property name="hibernate.order_inserts" value="true" />
+			<!-- Allow update multiple record -->
+			<property name="hibernate.order_updates" value="true" />
+			<property name="hibernate.jdbc.batch_versioned_data"
+				value="true" />
+			<!-- Use engine -->
+			<property name="hibernate.dialect.storage_engine"
+				value="innodb" />
+		</properties>
+	</persistence-unit>
+</persistence>

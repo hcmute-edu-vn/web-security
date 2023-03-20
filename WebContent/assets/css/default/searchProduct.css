@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+.catalog {
+	margin: 8rem 0;
+}
+
+
+.catalog__heading {
+	margin-bottom: 3rem;
+	position: relative;
+	width: fit-content;
+	text-transform: uppercase;
+}
+
+.catalog__heading::after {
+	position: absolute;
+	content: "";
+	height: 2px;
+	width: 100%;
+	background-color: #000;
+	bottom: -0.4rem;
+	left: 0;
+	border-radius: 0.4rem;
+	background-color: #5ec9ff;
+}
+
+.hide_element {
+	display: none;
+}
+
+.catalog__list {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 2.5rem 2rem;
+}
+
+.catalog__item {
+	width: 23%;
+}
+
+.group_content {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+	overflow: hidden;
+	border-radius: 1rem;
+	min-width: calc(( 1200px - 60px)/4);
+	transition: all linear 0.2s;
+}
+
+.group_content:hover {
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+}
+
+.home-product-item__img {
+	width: inherit;
+	height: 25rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.home-product-item__name {
+	font-size: 1.5rem;
+	margin-top: 8px;
+	line-height: 1.5rem;
+	max-height: 1.5rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+}
+
+.home-product-item__rating {
+    font-size: 1.2rem;
+    color: orange;
+    margin: 0.5rem 0;
+}
+
+.home-product-item__name>a {
+	transition: all linear 0.2s;
+}
+
+.home-product-item__name>a:hover {
+	color: #5ec9ff;
+}
+
+.shop_name {
+	font-size: 1.6rem;
+	margin: 4px 0;
+}
+
+.home-product-item__name, .shop_name, .home-product-item__rating,
+	.home-product-item__price {
+	padding: 0 8px;
+}
+
+.home-product-item__rating ion-icon {
+	font-size: 1.3rem;
+}
+
+.home-product-item__price {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 8px;
+	padding-bottom: 16px;
+	border-top: 1px solid #eae9e9;
+}
+
+.home-product-item__price-current {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: red;
+}
+
+.home-product-item__price-old {
+	font-size: 1.4rem;
+	font-weight: 600;
+	text-decoration: line-through;
+}

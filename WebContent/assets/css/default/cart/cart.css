@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+.order__container {
+	margin: 6rem 0;
+}
+
+.order__top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 3rem;
+	margin-bottom: 2rem;
+}
+
+.order__bottom {
+	max-width: 25rem;
+}
+
+.order__left {
+	flex: 1;
+}
+
+.order__left, .order__right {
+	border: 0.5px solid #ddd;
+	border-radius: 0.4rem;
+	padding: 1rem 2rem;
+}
+
+.order__right {
+	min-width: 30rem;
+}
+
+.order__heading {
+	margin-bottom: 1rem;
+}
+
+.order__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 0.5px solid #ddd;
+}
+
+.order__item:not(:last-child ) {
+	margin-bottom: 1.5rem;
+}
+
+.order__content {
+	flex: 1;
+}
+
+.order__row {
+	margin-bottom: 0.8rem;
+}
+
+.order__group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.order__group-name {
+	font-size: 1.8rem;
+}
+
+.order__remove-btn {
+	outline: none;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.order__total {
+	width: fit-content;
+	margin-left: auto;
+	font-weight: 700;
+	font-size: 1.7rem;
+	color: red;
+}
+
+.order__quanty, .order__quanty-action {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.order__quanty-btn {
+	background-color: transparent;
+	outline: none;
+	border: 1px solid #d2d2d2;
+	padding: 0 0.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.order__remove-btn:hover {
+	text-decoration: underline;
+}
+
+.order__payment {
+	margin: 2rem 0 1.5rem 0;
+	font-size: 1.8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.order__payment-price {
+	color: red;
+	font-weight: 700;
+}
+
+.btn-submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: fit-content;
+	outline: none;
+	border: 0.5px solid #6c757d;
+	padding: 0.7rem 1.5rem;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: #6c757d;
+	background-color: transparent;
+	transition: all linear 0.2s;
+	color: #6c757d;
+	border-radius: 0.4rem;
+}
+
+.btn-submit:hover {
+	color: #fff;
+	background-color: #6c757d;
+}
+
+.btn-submit ion-icon {
+	font-size: 2.5rem;
+}
+
+.order__payment ~.btn-submit {
+	padding: 0.5rem;
+	width: 100%
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.swiper {
+	height: 40rem;
+}
+
+.swiper-slide__img {
+	width: inherit;
+	height: 50rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+};
