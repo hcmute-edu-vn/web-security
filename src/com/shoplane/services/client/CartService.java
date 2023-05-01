@@ -106,6 +106,15 @@ public class CartService extends SuperService {
       this.redirectToPage(error);
     }
   }
+  
+  private int getTotalPrice(List<Order> orders) {
+	  int total = 0;
+	  int deliveryCost = 35000;
+	  for (Order order : orders) {
+		  total += order.getPrice();
+	  }
+	  return total + deliveryCost;
+}
 
   // [POST] CartCheckoutServlet
   public void submitCheckoutOrders() throws IOException {
@@ -120,17 +129,16 @@ public class CartService extends SuperService {
       String fullname = request.getParameter("fullname");
       String phonenumber = request.getParameter("phonenumber");
       String address = request.getParameter("address");
-      String totalPriceStr = request.getParameter("totalPrice");
 
       // create Bill
       String billId = Helper.getRandom();
-      int totalPrice = Integer.parseInt(totalPriceStr);
+      int totalPrice = getTotalPrice(orders);
       Bill bill = new Bill();
       bill.setBillId(billId);
       bill.setDate(new Date());
-      bill.setTotalPrice(totalPrice);
       bill.setUser(user);
       bill.setOrders(orders);
+      bill.setTotalPrice(totalPrice);
 
       // Set bill in each order
       for (Order order : orders) {

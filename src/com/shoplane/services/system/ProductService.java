@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.CategoryDAO;
 import com.shoplane.dao.ProductDAO;
 import com.shoplane.dao.ProductTypeDAO;
@@ -149,7 +151,7 @@ public class ProductService extends SuperService {
       String productId = super.getParameter("productId").trim();
       String productTypeId = super.getParameter("categoryTypeId").trim();
       String categoryId = super.getParameter("categoryId").trim();
-      String productName = super.getParameter("productName").trim();
+      String productName = Encode.forHtml(super.getParameter("productName").trim());
       String mainImageUrl = super.getParameter("mainImageUrl").trim();
       String oldPriceStr = super.getParameter("oldPrice").trim();
       String newPriceStr = super.getParameter("newPrice").trim();
@@ -248,18 +250,18 @@ public class ProductService extends SuperService {
           + "/system/products/?product_type=ALL&category=AO5&current_page=1&page_size=10";
 
       // Params
-      String productId = super.getParameter("productId").trim();
-      String productTypeId = super.getParameter("categoryTypeId").trim();
-      String categoryId = super.getParameter("categoryId").trim();
-      String productName = super.getParameter("productName").trim();
-      String mainImageUrl = super.getParameter("mainImageUrl").trim();
-      String origin = super.getParameter("origin").trim();
-      String pattern = super.getParameter("pattern").trim();
-      String meterial = super.getParameter("meterial").trim();
-      String description = super.getParameter("description").trim();
-      String oldPriceStr = super.getParameter("oldPrice").trim();
-      String newPriceStr = super.getParameter("newPrice").trim();
-      String isActiveStr = super.getParameter("select_active").trim();
+      String productId = Encode.forHtml(super.getParameter("productId").trim());
+      String productTypeId = Encode.forHtml(super.getParameter("categoryTypeId").trim());
+      String categoryId = Encode.forHtml(super.getParameter("categoryId").trim());
+      String productName = Encode.forHtml(super.getParameter("productName").trim());
+      String mainImageUrl = Encode.forHtml(super.getParameter("mainImageUrl").trim());
+      String origin = Encode.forHtml(super.getParameter("origin").trim());
+      String pattern = Encode.forHtml(super.getParameter("pattern").trim());
+      String meterial = Encode.forHtml(super.getParameter("meterial").trim());
+      String description = Encode.forHtml(super.getParameter("description").trim());
+      String oldPriceStr = Encode.forHtml(super.getParameter("oldPrice").trim());
+      String newPriceStr = Encode.forHtml(super.getParameter("newPrice").trim());
+      String isActiveStr = Encode.forHtml(super.getParameter("select_active").trim());
       String editProductStatus = "";
 
       int oldPrice = 0;

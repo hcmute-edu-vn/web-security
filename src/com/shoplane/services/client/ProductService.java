@@ -61,11 +61,20 @@ public class ProductService extends SuperService {
       byte isDelete = 0;
 
       if (currentPageStr != null && pageSizeStr != null) {
-        if (Helper.isNumeric(currentPageStr)) {
+		  if(currentPageStr.contains("-")) {
+			  currentPageStr = currentPageStr.substring(1);
+		}
+		if(pageSizeStr.contains("-")) {
+			pageSizeStr = pageSizeStr.substring(1);
+		}
+        if (Helper.isNumeric(currentPageStr) 
+        		&& currentPageStr.length() < String.format("%d", Integer.MAX_VALUE).length()) {
           currentPage = Integer.parseInt(currentPageStr);
         }
 
-        if (Helper.isNumeric(pageSizeStr)) {
+        if (Helper.isNumeric(pageSizeStr)
+        		&& pageSizeStr.length() < String.format("%d", Integer.MAX_VALUE).length()) {
+        	
           pageSize = Integer.parseInt(pageSizeStr);
         }
       }

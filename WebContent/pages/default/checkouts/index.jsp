@@ -63,10 +63,10 @@ int totalPrice = priceOrders + Constants.SHIPMENT;
 									<option value="-1">Vui lòng chọn quận (huyện)...</option>
 								</select> <select name="ward" id="ward" class="form-control">
 									<option value="-1">Vui lòng chọn phường (xã)...</option>
-								</select> <input class="form-control" type="text" name="address"
+								</select> 
+								<input class="form-control" type="text" name="address"
 									value="${sessionScope.user.getAddress()}"
-									placeholder="Địa chỉ tên đường, (số nhà)" required> <input
-									type="text" name="totalPrice" value="<%=totalPrice%>" hidden />
+									placeholder="Địa chỉ tên đường, (số nhà)" required> 
 								<div class="form-control"
 									style="display: flex; align-items: center; justify-content: space-between;">
 									<div style="color: #d2d2d2">

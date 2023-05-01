@@ -23,13 +23,12 @@ public class SendMail {
   public boolean sendOTPSignUpAccount(User user) {
     boolean isSend = false;
     String toEmail = user.getEmail();
-    /*
-     * String fromEmail = "doduongthaituan201102@gmail.com";
-     * String fromPwd = "ddqzmkydrtjexbfj";
-     */
-    String fromEmail = "20110743@student.hcmute.edu.vn";
-    String fromPwd = "Tuanvn1234567890..";
-    try {
+    String fromEmail = "doduongthaituan201102@gmail.com";
+    String fromPwd = "ccfpewhvraqeghqj";
+	/*
+	 * String fromEmail = "20110743@student.hcmute.edu.vn"; String fromPwd =
+	 * "Tuanvn1234567890..";
+	 */    try {
 
       // your host email smtp server details
       Properties pr = new Properties();
@@ -413,8 +412,8 @@ public class SendMail {
      * String fromEmail = "doduongthaituan201102@gmail.com";
      * String fromPwd = "ddqzmkydrtjexbfj";
      */
-    String fromEmail = "20110743@student.hcmute.edu.vn";
-    String fromPwd = "Tuanvn1234567890..";
+    String fromEmail = "doduongthaituan201102@gmail.com";
+    String fromPwd = "ccfpewhvraqeghqj";
     try {
 
       // your host email smtp server details
@@ -686,9 +685,7 @@ public class SendMail {
           + "</html>", "text/html; charset=UTF-8");
       // send the message
       Transport.send(mess);
-
       isSend = true;
-
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -721,8 +718,8 @@ public class SendMail {
     boolean isSend = false;
 
     // Source mail
-    String fromEmail = "20110743@student.hcmute.edu.vn";
-    String fromPwd = "Tuanvn1234567890..";
+    String fromEmail = "doduongthaituan201102@gmail.com";
+    String fromPwd = "ccfpewhvraqeghqj";
     try {
 
       // your host email smtp server details
@@ -1106,8 +1103,8 @@ public class SendMail {
     boolean isSend = false;
 
     // Source mail
-    String fromEmail = "20110743@student.hcmute.edu.vn";
-    String fromPwd = "Tuanvn1234567890..";
+    String fromEmail = "doduongthaituan201102@gmail.com";
+    String fromPwd = "ccfpewhvraqeghqj";
     try {
 
       // your host email smtp server details
