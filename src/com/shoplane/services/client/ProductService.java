@@ -170,7 +170,7 @@ public class ProductService extends SuperService {
       // Get data from input form
       super.setEncoding(Constants.UTF8);
       String optionId = super.getParameter("oId").trim();
-      String quantyString = super.getParameter("quanty").trim();
+      String quantyString = super.getParameter("quanty").trim().replace("-", "");
       int quanty = Integer.parseInt(quantyString);
       // Get Option
       Option option = this.optionDAO.find(optionId);

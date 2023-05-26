@@ -42,13 +42,13 @@ function handleAddToCart() {
 	$('.btn__add-to-cart').click(() => {
 		const data = { oId: '', quanty: '' };
 		// Get quantity 
-		data.quanty = $('.product_info-quantity-text').val();
-
+		data.quanty = $('.product_info-quantity-text').val().replace('-', '');
 		// Get checked radio
 		const selected = $(".product_info-size-item input[type='radio']:checked");
 		if (selected.length > 0) {
 			data.oId = selected.val();
 		}
+		console.log(data)
 		// Verify
 		if (data.oId === '') {
 			swal("Vui lòng lựa chọn kích thước");
@@ -56,6 +56,11 @@ function handleAddToCart() {
 		}
 		if (data.quanty === '') {
 			swal('Vui lòng chọn số lượng')
+			return;
+		}
+		
+		if(isNaN(+data.quanty)) {
+			swal('Số lượng không hợp lệ, vui lòng nhập lại số lượng')
 			return;
 		}
 

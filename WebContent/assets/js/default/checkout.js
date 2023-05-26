@@ -89,7 +89,6 @@ const app = {
 	handleSubmitOrder() {
 		orderBtn.click(() => {
 			// get data
-			const totalPrice = $('input[name="totalPrice"]').val().trim();
 			const fullname = $('input[name="fullname"]').val().trim();
 			const phonenumber = $('input[name="phonenumber"]').val().trim();
 			const extraAddress = $('input[name="address"]').val().trim();
@@ -124,7 +123,6 @@ const app = {
 				fullname,
 				phonenumber,
 				address,
-				totalPrice
 			}
 			const baseUrl = handleGetBaseUrl();
 			// Post data

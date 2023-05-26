@@ -18,7 +18,7 @@ String context = request.getContextPath();
 				<a
 					href="">Tài khoản</a>
 				<a
-					href="">Đăng xuất</a>
+					href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
 			</div>
 		</div>
 

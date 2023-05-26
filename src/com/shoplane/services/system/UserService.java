@@ -9,6 +9,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.RoleDAO;
 import com.shoplane.dao.UserDAO;
 import com.shoplane.models.Role;
@@ -208,13 +210,13 @@ public class UserService extends SuperService {
       // Url
       String url = super.getContextPath() + "/system/users/?role_id=ROL0&current_page=1&page_size=10";
       // Get params
-      String userId = request.getParameter("userId");
-      String fullname = super.getParameter("fullname");
-      String email = super.getParameter("email");
-      String phonenumber = super.getParameter("phonenumber");
-      String address = super.getParameter("address");
-      String isActiveStr = super.getParameter("acctiveAcc");
-      String roleId = super.getParameter("roleId");
+      String userId = Encode.forHtml(request.getParameter("userId"));
+      String fullname = Encode.forHtml(super.getParameter("fullname"));
+      String email = Encode.forHtml(super.getParameter("email"));
+      String phonenumber = Encode.forHtml(super.getParameter("phonenumber"));
+      String address = Encode.forHtml(super.getParameter("address"));
+      String isActiveStr = Encode.forHtml(super.getParameter("acctiveAcc"));
+      String roleId = Encode.forHtml(super.getParameter("roleId"));
       String editUserStatus = "";
 
       // Check
