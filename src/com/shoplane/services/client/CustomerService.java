@@ -115,8 +115,8 @@ public class CustomerService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/default/account/registerAccount.jsp";
-      String loginUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-          + request.getContextPath() + "/login";
+//      String loginUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+//          + request.getContextPath() + "/login";
       super.forwardToPage(url);
     } catch (Exception e) {
       super.log(e.getMessage());

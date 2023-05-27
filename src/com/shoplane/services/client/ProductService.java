@@ -10,6 +10,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.CategoryDAO;
 import com.shoplane.dao.OptionDAO;
 import com.shoplane.dao.ProductDAO;
@@ -49,12 +51,15 @@ public class ProductService extends SuperService {
 
       // Link
       String url = "/pages/default/collections/index.jsp";
-      // Get params
-      String productTypeId = super.getParameter("product_type");
-      String categoryId = super.getParameter("category_id");
-      String currentPageStr = super.getParameter("current_page");
-      String pageSizeStr = super.getParameter("page_size");
-      String sortBy = super.getParameter("sort_by_price");
+     
+      // Get params and encrypt data
+      String productTypeId = Encode.forHtml(super.getParameter("product_type"));
+      String categoryId = Encode.forHtml(super.getParameter("category_id"));
+      String currentPageStr = Encode.forHtml(super.getParameter("current_page"));
+      String pageSizeStr = Encode.forHtml(super.getParameter("page_size"));
+      String sortBy = Encode.forHtml(super.getParameter("sort_by_price"));
+      
+      System.out.println(categoryId);
 
       int currentPage = 1;
       int pageSize = 10;
@@ -121,6 +126,7 @@ public class ProductService extends SuperService {
       super.setAttribute("pageSize", pageSize);
       super.setAttribute("productType", productTypeId);
       super.setAttribute("categoryId", categoryId);
+      
 
       // Forward
       super.forwardToPage(url);
@@ -223,7 +229,7 @@ public class ProductService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/default/searchProduct.jsp";
-      String productName = request.getParameter("product_name").trim();
+      String productName = Encode.forHtml(request.getParameter("product_name").trim());
       if (productName != null) {
         List<Product> listProductWithSearch = new ArrayList<>();
         listProductWithSearch = this.productDAO.findByProductName(productName);

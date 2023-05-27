@@ -17,18 +17,16 @@ import com.shoplane.models.User;
 import com.shoplane.utils.Helper;
 
 public class SendMail {
-  public SendMail() {
-  }
+	private String fromEmail = "doduongthaituan201102@gmail.com";
+	private String fromPwd = "zmtvragkuyjqqluz";
+//	private String fromPwd = "";
+	public SendMail() {
+	}
 
   public boolean sendOTPSignUpAccount(User user) {
     boolean isSend = false;
     String toEmail = user.getEmail();
-    String fromEmail = "doduongthaituan201102@gmail.com";
-    String fromPwd = "ccfpewhvraqeghqj";
-	/*
-	 * String fromEmail = "20110743@student.hcmute.edu.vn"; String fromPwd =
-	 * "Tuanvn1234567890..";
-	 */    try {
+    try {
 
       // your host email smtp server details
       Properties pr = new Properties();
@@ -407,13 +405,6 @@ public class SendMail {
   // send reset password
   public boolean sendResetPassword(String toEmail, String code) {
     boolean isSend = false;
-
-    /*
-     * String fromEmail = "doduongthaituan201102@gmail.com";
-     * String fromPwd = "ddqzmkydrtjexbfj";
-     */
-    String fromEmail = "doduongthaituan201102@gmail.com";
-    String fromPwd = "ccfpewhvraqeghqj";
     try {
 
       // your host email smtp server details
@@ -693,7 +684,7 @@ public class SendMail {
   }
 
   // Create table bill detail
-  private String createBilDetail(Bill bill) {
+  private String createBillDetail(Bill bill) {
     String html = "";
     List<Order> orders = bill.getOrders();
     for (Order order : orders) {
@@ -716,10 +707,6 @@ public class SendMail {
   // Send bill
   public boolean sendReceipt(String toEmail, Bill bill) {
     boolean isSend = false;
-
-    // Source mail
-    String fromEmail = "doduongthaituan201102@gmail.com";
-    String fromPwd = "ccfpewhvraqeghqj";
     try {
 
       // your host email smtp server details
@@ -967,7 +954,7 @@ public class SendMail {
           + "                                                    <th style=\"padding: 0 15px;\">Quantity</th>\r\n"
           + "                                                    <th style=\"padding: 0 0 0 15px;\" align=\"right\">Price</th>\r\n"
           + "                                                </tr>\r\n"
-          + createBilDetail(bill)
+          + createBillDetail(bill)
           + "                                            </table>\r\n"
           + "\r\n"
           + "                                        </td>\r\n"
@@ -1101,12 +1088,7 @@ public class SendMail {
   // send email wellcome signup success
   public boolean sendSignUpSuccess(String toEmail, String loginUrl) {
     boolean isSend = false;
-
-    // Source mail
-    String fromEmail = "doduongthaituan201102@gmail.com";
-    String fromPwd = "ccfpewhvraqeghqj";
     try {
-
       // your host email smtp server details
       Properties pr = new Properties();
       pr.setProperty("mail.smtp.host", "smtp.gmail.com");
