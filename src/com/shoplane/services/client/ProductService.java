@@ -145,7 +145,7 @@ public class ProductService extends SuperService {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/default/productDetail.jsp";
       // Get data
-      String productId = super.getParameter("product_id").trim();
+      String productId = Encode.forHtml(super.getParameter("product_id").trim());
       if (productId != null) {
         // Get product by productId
         Product product = this.productDAO.find(productId);
@@ -175,8 +175,8 @@ public class ProductService extends SuperService {
     try {
       // Get data from input form
       super.setEncoding(Constants.UTF8);
-      String optionId = super.getParameter("oId").trim();
-      String quantyString = super.getParameter("quanty").trim().replace("-", "");
+      String optionId = Encode.forHtml(super.getParameter("oId").trim());
+      String quantyString = Encode.forHtml(super.getParameter("quanty").trim().replace("-", ""));
       int quanty = Integer.parseInt(quantyString);
       // Get Option
       Option option = this.optionDAO.find(optionId);

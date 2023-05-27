@@ -19,7 +19,6 @@ public class DeleteUserServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String userSelected = request.getParameter("data");
-    System.out.println("==================== " + userSelected);
   }
 
   @Override

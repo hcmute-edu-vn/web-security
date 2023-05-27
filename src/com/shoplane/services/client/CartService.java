@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.BillDAO;
 import com.shoplane.dao.UserDAO;
 import com.shoplane.models.Bill;
@@ -60,7 +62,7 @@ public class CartService extends SuperService {
       // Get sesion
       HttpSession session = super.getSession();
       // Get data
-      String opId = super.getParameter("oId");
+      String opId = Encode.forHtml(super.getParameter("oId"));
       String url = "/pages/default/cart/index.jsp";
       String deleteItemStatus = "";
       @SuppressWarnings("unchecked")
@@ -126,9 +128,9 @@ public class CartService extends SuperService {
       User user = (User) request.getSession().getAttribute(Constants.USER_SESSION);
 
       // Get data from form checkout
-      String fullname = request.getParameter("fullname");
-      String phonenumber = request.getParameter("phonenumber");
-      String address = request.getParameter("address");
+      String fullname = Encode.forHtml(request.getParameter("fullname"));
+      String phonenumber = Encode.forHtml(request.getParameter("phonenumber"));
+      String address = Encode.forHtml(request.getParameter("address"));
 
       // create Bill
       String billId = Helper.getRandom();

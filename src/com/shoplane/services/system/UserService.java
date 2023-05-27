@@ -40,9 +40,9 @@ public class UserService extends SuperService {
       // Define url
       String url = "/pages/system/users/index.jsp";
 
-      String roleId = super.getParameter("role_id");
-      String currentPageStr = super.getParameter("current_page");
-      String pageSizeStr = super.getParameter("page_size");
+      String roleId = Encode.forHtml(super.getParameter("role_id"));
+      String currentPageStr = Encode.forHtml(super.getParameter("current_page"));
+      String pageSizeStr = Encode.forHtml(super.getParameter("page_size"));
 
       int currentPage = 1;
       int pageSize = 10;
@@ -126,14 +126,14 @@ public class UserService extends SuperService {
       // Define url
       String url = super.getContextPath() + "/system/users/?role_id=ROL0&current_page=1&page_size=10";
       // Get params
-      String userId = super.getParameter("userId");
-      String fullname = super.getParameter("fullname");
-      String email = super.getParameter("email");
-      String phonenumber = super.getParameter("phonenumber");
-      String address = super.getParameter("address");
-      String password = super.getParameter("password");
-      String isActiveStr = super.getParameter("acctiveAcc");
-      String roleId = super.getParameter("roleId");
+      String userId = Encode.forHtml(super.getParameter("userId"));
+      String fullname = Encode.forHtml(super.getParameter("fullname"));
+      String email = Encode.forHtml(super.getParameter("email"));
+      String phonenumber = Encode.forHtml(super.getParameter("phonenumber"));
+      String address = Encode.forHtml(super.getParameter("address"));
+      String password = Encode.forHtml(super.getParameter("password"));
+      String isActiveStr = Encode.forHtml(super.getParameter("acctiveAcc"));
+      String roleId = Encode.forHtml(super.getParameter("roleId"));
       String pwdHashed = "";
       String createUserStatus = "";
 
@@ -187,7 +187,7 @@ public class UserService extends SuperService {
       // Url
       String url = "/pages/system/users/editUser.jsp";
       // Get params
-      String userId = request.getParameter("user_id");
+      String userId = Encode.forHtml(request.getParameter("user_id"));
       // Get data
       User user = this.userDAO.find(userId);
       List<Role> roles = this.roleDAO.findAll();

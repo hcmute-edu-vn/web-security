@@ -18,8 +18,8 @@ import com.shoplane.utils.Helper;
 
 public class SendMail {
 	private String fromEmail = "doduongthaituan201102@gmail.com";
-	private String fromPwd = "zmtvragkuyjqqluz";
-//	private String fromPwd = "";
+//	private String fromPwd = "zmtvragkuyjqqluz";
+	private String fromPwd = "";
 	public SendMail() {
 	}
 

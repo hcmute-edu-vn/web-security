@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.ColorDAO;
 import com.shoplane.dao.OptionDAO;
 import com.shoplane.dao.ProductDAO;
@@ -38,7 +40,7 @@ public class OptionService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/system/options/index.jsp";
-      String productId = super.getParameter("product_id").trim();
+      String productId = Encode.forHtml(super.getParameter("product_id").trim());
       Product product = this.productDAO.find(productId);
 
       List<Option> options = null;
@@ -68,7 +70,7 @@ public class OptionService extends SuperService {
       // define url
       String url = "/pages/system/options/createOption.jsp";
       // Get param
-      String productId = super.getParameter("product_id").trim();
+      String productId = Encode.forHtml(super.getParameter("product_id").trim());
       Product product = this.productDAO.find(productId);
       List<Size> sizes = this.sizeDAO.findAll();
       List<Color> colors = this.colorDAO.findAll();
@@ -138,8 +140,8 @@ public class OptionService extends SuperService {
       // define Url
       String url = "/pages/system/options/editOption.jsp";
       // Get Params
-      String optionId = super.getParameter("option_id");
-      String productId = super.getParameter("product_id");
+      String optionId = Encode.forHtml(super.getParameter("option_id"));
+      String productId = Encode.forHtml(super.getParameter("product_id"));
 
       // Get data from db
       Product product = this.productDAO.find(productId);
@@ -168,11 +170,11 @@ public class OptionService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       // Get Params
-      String optionId = super.getParameter("option_id");
-      String productId = super.getParameter("product_id");
-      String sizeId = super.getParameter("sizeId");
-      String colorId = super.getParameter("colorId");
-      String quantity = super.getParameter("availableQuantity");
+      String optionId = Encode.forHtml(super.getParameter("option_id"));
+      String productId = Encode.forHtml(super.getParameter("product_id"));
+      String sizeId = Encode.forHtml(super.getParameter("sizeId"));
+      String colorId = Encode.forHtml(super.getParameter("colorId"));
+      String quantity = Encode.forHtml(super.getParameter("availableQuantity"));
       String editOptionStatus = "";
 
       // Url

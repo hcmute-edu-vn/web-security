@@ -9,6 +9,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.RoleDAO;
 import com.shoplane.dao.UserDAO;
 import com.shoplane.models.Role;
@@ -69,9 +71,9 @@ public class CustomerService extends SuperService {
 
       // Get params
       String url = super.getContextPath() + "/account";
-      String nextUrl = request.getParameter("caller");
-      String email = request.getParameter("email").trim();
-      String pwdNotHash = request.getParameter("password").trim();
+      String nextUrl = Encode.forHtml(request.getParameter("caller"));
+      String email = Encode.forHtml(request.getParameter("email").trim());
+      String pwdNotHash = Encode.forHtml(request.getParameter("password").trim());
 
       // Check Url
       if (!nextUrl.equals("") && !nextUrl.equals(url)) {
@@ -134,11 +136,11 @@ public class CustomerService extends SuperService {
 
       // Get param from sign up form
       String userId = Helper.getRandom();
-      String fullName = request.getParameter("fullName").trim();
-      String phonenumber = request.getParameter("phonenumber").trim();
-      String address = request.getParameter("address").trim();
-      String email = request.getParameter("email").trim();
-      String pwd = request.getParameter("password").trim();
+      String fullName = Encode.forHtml(request.getParameter("fullName").trim());
+      String phonenumber = Encode.forHtml(request.getParameter("phonenumber").trim());
+      String address = Encode.forHtml(request.getParameter("address").trim());
+      String email = Encode.forHtml(request.getParameter("email").trim());
+      String pwd = Encode.forHtml(request.getParameter("password").trim());
 
       User userExits = this.userDAO.findByEmail(email);
 
@@ -213,7 +215,7 @@ public class CustomerService extends SuperService {
       String url = super.getContextPath() + "/login";
       String loginUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
           + request.getContextPath() + "/login";
-      String code = super.getParameter("code").trim();
+      String code = Encode.forHtml(super.getParameter("code").trim());
       User user = (User) super.getSession().getAttribute(Constants.USER_SESSION);
       if (code.equals(user.getCode())) {
         this.userDAO.create(user);
@@ -343,7 +345,7 @@ public class CustomerService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = super.getContextPath() + "/forgot-password/change";
-      String otpInput = super.getParameter("otp").trim();
+      String otpInput = Encode.forHtml(super.getParameter("otp").trim());
       String otpCookie = "";
       String errMsg = "";
 
@@ -389,9 +391,9 @@ public class CustomerService extends SuperService {
 
       String url = super.getContextPath() + "/login";
       String resetPasswordStatus = "";
-      String newPassword = super.getParameter("newPassword").trim();
-      String confirmPassword = super.getParameter("confirmPassword").trim();
-      String email = (String) super.getSession().getAttribute("emailUserForgotPassword");
+      String newPassword = Encode.forHtml(super.getParameter("newPassword").trim());
+      String confirmPassword = Encode.forHtml(super.getParameter("confirmPassword").trim());
+      String email =  Encode.forHtml((String)super.getSession().getAttribute("emailUserForgotPassword"));
       String pwdHashed = "";
       String errMsg = "";
       User user = this.userDAO.findByEmail(email);

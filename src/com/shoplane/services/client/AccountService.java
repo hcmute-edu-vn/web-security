@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.BillDAO;
 import com.shoplane.dao.UserDAO;
 import com.shoplane.models.Bill;
@@ -71,9 +73,9 @@ public class AccountService extends SuperService {
       String changePasswordAccountStatus = "";
 
       // Get data from form
-      String currentPassword = super.getParameter("currentPassword");
-      String newPassword = super.getParameter("newPassword").trim();
-      String confirmPassword = super.getParameter("confirmPassword").trim();
+      String currentPassword = Encode.forHtml(super.getParameter("currentPassword"));
+      String newPassword = Encode.forHtml(super.getParameter("newPassword").trim());
+      String confirmPassword = Encode.forHtml(super.getParameter("confirmPassword").trim());
 
       // Get data
       User user = (User) request.getSession().getAttribute(Constants.USER_SESSION);
@@ -147,9 +149,9 @@ public class AccountService extends SuperService {
       String url = super.getContextPath() + "/account";
 
       // Get data
-      String fullname = super.getParameter("fullname");
-      String phonenumber = super.getParameter("phonenumber");
-      String address = super.getParameter("address");
+      String fullname = Encode.forHtml(super.getParameter("fullname"));
+      String phonenumber = Encode.forHtml(super.getParameter("phonenumber"));
+      String address = Encode.forHtml(super.getParameter("address"));
       String errMsg = "";
       String modifyAccountStatus = "";
       User customer = (User) super.getSession().getAttribute(Constants.USER_SESSION);

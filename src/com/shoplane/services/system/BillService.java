@@ -11,6 +11,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.BillDAO;
 import com.shoplane.dao.RoleDAO;
 import com.shoplane.dao.UserDAO;
@@ -44,9 +46,9 @@ public class BillService extends SuperService {
       super.setEncoding(Constants.UTF8);
       // define url
       String url = "/pages/system/bills/index.jsp";
-      String statusStr = super.getParameter("status");
-      String currentPageStr = super.getParameter("current_page");
-      String pageSizeStr = super.getParameter("page_size");
+      String statusStr = Encode.forHtml(super.getParameter("status"));
+      String currentPageStr = Encode.forHtml(super.getParameter("current_page"));
+      String pageSizeStr = Encode.forHtml(super.getParameter("page_size"));
 
       // Convert string to int
       int currentPage = 1;
@@ -109,7 +111,7 @@ public class BillService extends SuperService {
       // define url to forward
       String url = "/pages/system/bills/editBill.jsp";
       // get bill Id
-      String billId = request.getParameter("bill_id");
+      String billId = Encode.forHtml(request.getParameter("bill_id"));
       // find bill By Id
       Bill foundBill = this.billDAO.find(billId);
       // Get data
@@ -140,7 +142,7 @@ public class BillService extends SuperService {
       String url = super.getContextPath() + "/system/bills/?status=2&current_page=1&page_size=10";
 
       // get updated value from updating form
-      String billId = super.getParameter("billId");
+      String billId = Encode.forHtml(super.getParameter("billId"));
       byte status = Byte.parseByte(request.getParameter("statusBill"));
       String editBillStatus = "";
 

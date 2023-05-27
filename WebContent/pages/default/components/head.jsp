@@ -16,13 +16,13 @@ String context = request.getContextPath();
 	rel="stylesheet">
 
 <!-- Fontawesome -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-	crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css"
+	href="<%=context %>/assets/css/vendor/fontawesome.css" />
+
 <!-- Swiper -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=context %>/assets/css/vendor/swiper-bundle.min.css" />
+
 <link rel="stylesheet" type="text/css"
 	href="<%=context %>/assets/css/index.css" />
 <link rel="stylesheet" type="text/css"
@@ -34,13 +34,5 @@ String context = request.getContextPath();
 <link rel="shortcut icon"
 	href="<%=context %>/assets/images/favicon/favicon.ico"
 	type="image/x-icon" />
-
-<script defer
-	src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-	integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-	crossorigin="anonymous"></script>
-
-<script type="module" defer
-	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule defer
-	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
+	

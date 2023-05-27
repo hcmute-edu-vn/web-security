@@ -45,10 +45,10 @@ public class ProductService extends SuperService {
       super.setEncoding(Constants.UTF8);
 
       // get list
-      String productTypeId = super.getParameter("product_type");
-      String categoryId = super.getParameter("category");
-      String currentPageStr = super.getParameter("current_page");
-      String pageSizeStr = super.getParameter("page_size");
+      String productTypeId = Encode.forHtml(super.getParameter("product_type"));
+      String categoryId = Encode.forHtml(super.getParameter("category"));
+      String currentPageStr = Encode.forHtml(super.getParameter("current_page"));
+      String pageSizeStr = Encode.forHtml(super.getParameter("page_size"));
 
       int currentPage = 1;
       int pageSize = 10;
@@ -148,18 +148,18 @@ public class ProductService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       // Get props
-      String productId = super.getParameter("productId").trim();
-      String productTypeId = super.getParameter("categoryTypeId").trim();
-      String categoryId = super.getParameter("categoryId").trim();
+      String productId = Encode.forHtml(super.getParameter("productId").trim());
+      String productTypeId = Encode.forHtml(super.getParameter("categoryTypeId").trim());
+      String categoryId = Encode.forHtml(super.getParameter("categoryId").trim());
       String productName = Encode.forHtml(super.getParameter("productName").trim());
-      String mainImageUrl = super.getParameter("mainImageUrl").trim();
-      String oldPriceStr = super.getParameter("oldPrice").trim();
-      String newPriceStr = super.getParameter("newPrice").trim();
-      String origin = super.getParameter("origin").trim();
-      String pattern = super.getParameter("pattern").trim();
-      String meterial = super.getParameter("meterial").trim();
-      String description = super.getParameter("description").trim();
-      String isActiveStr = super.getParameter("select_active").trim();
+      String mainImageUrl = Encode.forHtml(super.getParameter("mainImageUrl").trim());
+      String oldPriceStr = Encode.forHtml(super.getParameter("oldPrice").trim());
+      String newPriceStr = Encode.forHtml(super.getParameter("newPrice").trim());
+      String origin = Encode.forHtml(super.getParameter("origin").trim());
+      String pattern = Encode.forHtml(super.getParameter("pattern").trim());
+      String meterial = Encode.forHtml(super.getParameter("meterial").trim());
+      String description = Encode.forHtml(super.getParameter("description").trim());
+      String isActiveStr = Encode.forHtml(super.getParameter("select_active").trim());
       String createProductStatus = "";
 
       int oldPrice = 0;
@@ -220,7 +220,7 @@ public class ProductService extends SuperService {
       String url = "/pages/system/products/editProduct.jsp";
 
       // Param
-      String productId = this.request.getParameter("product_id");
+      String productId = Encode.forHtml(this.request.getParameter("product_id"));
 
       // Get data
       Product product = this.productDAO.find(productId);
@@ -319,8 +319,7 @@ public class ProductService extends SuperService {
           + "/system/products/?product_type=ALL&category=AO5&current_page=1&page_size=10";
 
       // Get Param
-      String productsSelected = super.getParameter("productsSelected");
-      System.out.println(productsSelected);
+      String productsSelected = Encode.forHtml(super.getParameter("productsSelected"));
       String[] productIds = null;
       List<Product> products = new ArrayList<>();
       Product product = null;
@@ -387,7 +386,7 @@ public class ProductService extends SuperService {
       // Link
       String url = super.getContextPath() + "/system/products/trash/";
       // Get data
-      String productId = super.getParameter("product_id");
+      String productId = Encode.forHtml(super.getParameter("product_id"));
       byte isDeleted = 1;
       byte unDeleted = 0;
       String recoveryProductItemStatus = "";
@@ -422,7 +421,7 @@ public class ProductService extends SuperService {
           + "/system/products/?product_type=ALL&category=AO5&current_page=1&page_size=10";
 
       // Get Param
-      String productsSelected = super.getParameter("productsSelected");
+      String productsSelected = Encode.forHtml(super.getParameter("productsSelected"));
       System.out.println(productsSelected);
       String[] productIds = null;
       List<Product> products = new ArrayList<>();

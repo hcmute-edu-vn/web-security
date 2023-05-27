@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.owasp.encoder.Encode;
+
 import com.shoplane.dao.ProductDAO;
 import com.shoplane.dao.ProductImageDAO;
 import com.shoplane.models.Product;
@@ -30,7 +32,7 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/system/imagesPreview/index.jsp";
-      String productId = super.getParameter("product_id");
+      String productId = Encode.forHtml(super.getParameter("product_id"));
 
       // Get data
       Product product = this.productDAO.find(productId);
@@ -59,7 +61,7 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/system/imagesPreview/createImagePreview.jsp";
-      String productId = super.getParameter("product_id");
+      String productId = Encode.forHtml(super.getParameter("product_id"));
 
       // Get data
       Product product = this.productDAO.find(productId);
@@ -84,9 +86,9 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       // Get Params
-      String productId = super.getParameter("productId").trim();
-      String imageId = super.getParameter("imageId").trim();
-      String imageUrl = super.getParameter("imageUrl").trim();
+      String productId = Encode.forHtml(super.getParameter("productId").trim());
+      String imageId = Encode.forHtml(super.getParameter("imageId").trim());
+      String imageUrl = Encode.forHtml(super.getParameter("imageUrl").trim());
       String createImageStatus = "";
 
       // Define url
@@ -123,9 +125,8 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       String url = "/pages/system/imagesPreview/editImagePreview.jsp";
-      String productId = super.getParameter("product_id");
-      String imageId = super.getParameter("image_id");
-
+      String productId = Encode.forHtml(super.getParameter("product_id"));
+      String imageId = Encode.forHtml(super.getParameter("image_id"));
       // Get data
       Product product = this.productDAO.find(productId);
       ProductImage productImage = this.productImageDAO.find(imageId);
@@ -150,9 +151,9 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       // Get Params
-      String productId = super.getParameter("productId").trim();
-      String imageId = super.getParameter("imageId").trim();
-      String imageUrl = super.getParameter("imageUrl").trim();
+      String productId = Encode.forHtml(super.getParameter("productId").trim());
+      String imageId = Encode.forHtml(super.getParameter("imageId").trim());
+      String imageUrl = Encode.forHtml(super.getParameter("imageUrl").trim());
       String editImageStatus = "";
 
       // Define url
@@ -189,8 +190,8 @@ public class ProductImageService extends SuperService {
     try {
       super.setEncoding(Constants.UTF8);
       // Get Params
-      String productId = super.getParameter("product_id").trim();
-      String imageIdsSelected = super.getParameter("imagesSelected");
+      String productId = Encode.forHtml(super.getParameter("product_id").trim());
+      String imageIdsSelected = Encode.forHtml(super.getParameter("imagesSelected"));
       String[] imageIds = null;
       List<ProductImage> productImages = new ArrayList<>();
       ProductImage productImage = null;
