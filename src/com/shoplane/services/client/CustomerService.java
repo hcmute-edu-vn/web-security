@@ -288,6 +288,7 @@ public class CustomerService extends SuperService {
       // Remove OTP if exist
       Cookie OTPCookieRemove = new Cookie("OTP", "");
       OTPCookieRemove.setMaxAge(0);
+      OTPCookieRemove.setHttpOnly(true);
       response.addCookie(OTPCookieRemove);
 
       // get User
@@ -298,7 +299,11 @@ public class CustomerService extends SuperService {
         // Create OTP cookie
         String OTP = Helper.getRandom();
         Cookie otpCookie = new Cookie("OTP", OTP);
+        String path = otpCookie.getPath();
+		path = path.concat("SameSite=Strict;");
+        otpCookie.setPath(path);
         otpCookie.setMaxAge(120);
+        otpCookie.setHttpOnly(true);
         response.addCookie(otpCookie);
         // Send mail
         SendMail sendMail = new SendMail();

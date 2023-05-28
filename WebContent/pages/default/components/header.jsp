@@ -70,12 +70,13 @@ if (u != null) {
 						name="product_name" /> <input type="submit" style="display: none" />
 				</form></li>
 			<li class="header__navbar-item header__navbar-actions"><a
-				href="<%=context%>/cart" class="header__navbar-item-link"><ion-icon
-						name="cart-outline"></ion-icon>
+				href="<%=context%>/cart" class="header__navbar-item-link">
+					<i class="fas fa-shopping-cart"></i>
 					<div class="header_navbar-count"></div> <input id='ordersCount'
 					type='hidden' value='${sessionScope.orderSize}' /> </a> <a
-				href="<%=url%>" class="header__navbar-item-link"><ion-icon
-						name="person-outline"></ion-icon></a></li>
+				href="<%=url%>" class="header__navbar-item-link">
+				<i class="fas fa-user"></i>
+					</a></li>
 		</ul>
 	</div>
 </header> 

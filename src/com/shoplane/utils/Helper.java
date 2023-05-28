@@ -1,15 +1,16 @@
 package com.shoplane.utils;
 
+import java.security.SecureRandom;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 
 public class Helper {
-  public static String getRandom() {
-    Random rand = new Random();
+	private static final SecureRandom rand = new SecureRandom(); 
+	public static String getRandom() {
+//    Random rand = new Random();
     int number = rand.nextInt(999999);
     return String.format("%06d", number);
   }

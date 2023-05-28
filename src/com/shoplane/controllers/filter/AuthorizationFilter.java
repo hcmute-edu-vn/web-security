@@ -9,13 +9,15 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shoplane.models.User;
 import com.shoplane.utils.Constants;
 
-public class AuthorizationFilterServlet implements Filter {
+@WebFilter("/*")
+public class AuthorizationFilter implements Filter {
   private ServletContext servletContext = null;
 
   @Override

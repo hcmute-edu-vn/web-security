@@ -17,8 +17,9 @@ import com.shoplane.models.User;
 import com.shoplane.utils.Helper;
 
 public class SendMail {
-	private String fromEmail = "doduongthaituan201102@gmail.com";
+//	private String fromEmail = "doduongthaituan201102@gmail.com";
 //	private String fromPwd = "zmtvragkuyjqqluz";
+	private String fromEmail = "doduongthaituan@gmail.com";
 	private String fromPwd = "";
 	public SendMail() {
 	}
